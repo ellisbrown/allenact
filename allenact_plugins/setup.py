@@ -105,7 +105,7 @@ def run_setup():
         classifiers=[
             "Intended Audience :: Science/Research",
             "Development Status :: 3 - Alpha",
-            "License :: OSI Approved :: MIT License",
+            # "License :: OSI Approved :: MIT License",  # deprecated
             "Topic :: Scientific/Engineering :: Artificial Intelligence",
             "Programming Language :: Python",
             "Programming Language :: Python :: 3.6",
@@ -121,8 +121,9 @@ def run_setup():
         license="MIT",
         packages=find_packages(include=["allenact_plugins", "allenact_plugins.*"]),
         install_requires=[f"allenact=={__version__}"],
-        setup_requires=["pytest-runner"],
-        tests_require=["pytest", "pytest-cov"],
+        ## broken by more recent versions of setuptools:
+        # setup_requires=["pytest-runner"],
+        # tests_require=["pytest", "pytest-cov"],
         extras_require=extras,
     )
 
