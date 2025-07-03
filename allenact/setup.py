@@ -126,8 +126,9 @@ def _do_setup():
             "attrs",
             "scipy",
         ],
-        setup_requires=["pytest-runner"],
-        tests_require=["pytest", "pytest-cov", "compress_pickle"],
+        ## broken by more recent versions of setuptools:
+        # setup_requires=["pytest-runner"],
+        # tests_require=["pytest", "pytest-cov", "compress_pickle"],
         entry_points={"console_scripts": ["allenact=allenact.main:main"]},
         extras_require=extras,
     )
