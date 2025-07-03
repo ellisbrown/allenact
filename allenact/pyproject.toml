@@ -1,3 +1,44 @@
 [build-system]
-requires = ["setuptools<69", "wheel<0.44"]
+requires      = ["setuptools>=69.5", "wheel"]   # modern, stable
 build-backend = "setuptools.build_meta"
+
+[project]
+name         = "allenact"
+version      = "0.5.6"
+description  = "AllenAct embodied-AI learning framework"
+authors      = [
+    { name="Allen Institute for AI", email="lucaw@allenai.org" },
+]
+license      = "MIT"
+requires-python = ">=3.8"
+
+# ── runtime dependencies ────────────────────────────────────────────────
+dependencies = [
+    "gym==0.17.*",  # Newer versions of gym are now broken with updates to setuptools
+    "torch",
+    "torchvision",
+    "tensorboardx",
+    "setproctitle",
+    "moviepy",
+    "filelock",
+    "numpy",
+    "Pillow",
+    "matplotlib",
+    "networkx",
+    "opencv-python",
+    "wheel",
+    "attrs",
+    "scipy",
+]
+
+# ── optional (extras) and dev deps ──────────────────────────────────────
+[project.optional-dependencies]
+dev  = ["pytest", "pytest-cov", "compress_pickle"]
+
+# ── console-script entry points ─────────────────────────────────────────
+[project.scripts]
+allenact = "allenact.main:main"
+
+# tell setuptools to include only `allenact` and its sub-packages
+[tool.setuptools.packages.find]
+include = ["allenact", "allenact.*"]

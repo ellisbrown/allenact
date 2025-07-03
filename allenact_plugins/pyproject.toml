@@ -1,3 +1,17 @@
 [build-system]
-requires = ["setuptools<69", "wheel<0.44"]
+requires      = ["setuptools>=69.5", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name            = "allenact-plugins"
+version         = "0.5.6"
+description     = "Official plugin collection for AllenAct"
+authors         = [
+    { name="Allen Institute for AI", email="lucaw@allenai.org" },
+]
+license         = "MIT"
+requires-python = ">=3.8"
+dependencies    = ["allenact"]      # plus any plugin-specific deps
+
+[tool.setuptools.packages.find]
+include = ["allenact_plugins", "allenact_plugins.*"]
