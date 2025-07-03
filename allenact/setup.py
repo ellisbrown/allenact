@@ -94,7 +94,7 @@ def _do_setup():
         classifiers=[
             "Intended Audience :: Science/Research",
             "Development Status :: 3 - Alpha",
-            "License :: OSI Approved :: MIT License",
+            # "License :: OSI Approved :: MIT License",  # deprecated
             "Topic :: Scientific/Engineering :: Artificial Intelligence",
             "Programming Language :: Python",
             "Programming Language :: Python :: 3.6",
