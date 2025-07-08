@@ -9,9 +9,14 @@ description     = "Official plugin collection for AllenAct"
 authors         = [
     { name="Allen Institute for AI", email="lucaw@allenai.org" },
 ]
-license         = "MIT"
+license         = { text = "MIT" }
 requires-python = ">=3.8"
 dependencies    = ["allenact"]      # plus any plugin-specific deps
 
-[tool.setuptools.packages.find]
-include = ["allenact_plugins", "allenact_plugins.*"]
+# tell setuptools to find packages in the current directory
+[tool.setuptools]
+packages = ["allenact_plugins"]
+package-dir = {"allenact_plugins" = "."}
+
+[tool.setuptools.package-data]
+allenact_plugins = ["**/*.py"]

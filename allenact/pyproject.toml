@@ -9,7 +9,7 @@ description  = "AllenAct embodied-AI learning framework"
 authors      = [
     { name="Allen Institute for AI", email="lucaw@allenai.org" },
 ]
-license      = "MIT"
+license      = { text = "MIT" }
 requires-python = ">=3.8"
 
 # ── runtime dependencies ────────────────────────────────────────────────
@@ -39,6 +39,10 @@ dev  = ["pytest", "pytest-cov", "compress_pickle"]
 [project.scripts]
 allenact = "allenact.main:main"
 
-# tell setuptools to include only `allenact` and its sub-packages
-[tool.setuptools.packages.find]
-include = ["allenact", "allenact.*"]
+# tell setuptools to find packages in the current directory
+[tool.setuptools]
+packages = ["allenact"]
+package-dir = {"allenact" = "."}
+
+[tool.setuptools.package-data]
+allenact = ["**/*.py"]
